@@ -15,26 +15,31 @@
 
 <title>Using the freq_test Function</title>
 
-<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
-// be compatible with the behavior of Pandoc < 2.8).
-document.addEventListener('DOMContentLoaded', function(e) {
-  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
-  var i, h, a;
-  for (i = 0; i < hs.length; i++) {
-    h = hs[i];
-    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
-    a = h.attributes;
-    while (a.length > 0) h.removeAttribute(a[0].name);
+<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
   }
-});
-</script>
-
-
-<style type="text/css">code{white-space: pre;}</style>
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -120,187 +125,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<style type="text/css">body {
-background-color: #fff;
-margin: 1em auto;
-max-width: 700px;
-overflow: visible;
-padding-left: 2em;
-padding-right: 2em;
-font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-font-size: 14px;
-line-height: 1.35;
-}
-#TOC {
-clear: both;
-margin: 0 0 10px 10px;
-padding: 4px;
-width: 400px;
-border: 1px solid #CCCCCC;
-border-radius: 5px;
-background-color: #f6f6f6;
-font-size: 13px;
-line-height: 1.3;
-}
-#TOC .toctitle {
-font-weight: bold;
-font-size: 15px;
-margin-left: 5px;
-}
-#TOC ul {
-padding-left: 40px;
-margin-left: -1.5em;
-margin-top: 5px;
-margin-bottom: 5px;
-}
-#TOC ul ul {
-margin-left: -2em;
-}
-#TOC li {
-line-height: 16px;
-}
-table {
-margin: 1em auto;
-border-width: 1px;
-border-color: #DDDDDD;
-border-style: outset;
-border-collapse: collapse;
-}
-table th {
-border-width: 2px;
-padding: 5px;
-border-style: inset;
-}
-table td {
-border-width: 1px;
-border-style: inset;
-line-height: 18px;
-padding: 5px 5px;
-}
-table, table th, table td {
-border-left-style: none;
-border-right-style: none;
-}
-table thead, table tr.even {
-background-color: #f7f7f7;
-}
-p {
-margin: 0.5em 0;
-}
-blockquote {
-background-color: #f6f6f6;
-padding: 0.25em 0.75em;
-}
-hr {
-border-style: solid;
-border: none;
-border-top: 1px solid #777;
-margin: 28px 0;
-}
-dl {
-margin-left: 0;
-}
-dl dd {
-margin-bottom: 13px;
-margin-left: 13px;
-}
-dl dt {
-font-weight: bold;
-}
-ul {
-margin-top: 0;
-}
-ul li {
-list-style: circle outside;
-}
-ul ul {
-margin-bottom: 0;
-}
-pre, code {
-background-color: #f7f7f7;
-border-radius: 3px;
-color: #333;
-white-space: pre-wrap; 
-}
-pre {
-border-radius: 3px;
-margin: 5px 0px 10px 0px;
-padding: 10px;
-}
-pre:not([class]) {
-background-color: #f7f7f7;
-}
-code {
-font-family: Consolas, Monaco, 'Courier New', monospace;
-font-size: 85%;
-}
-p > code, li > code {
-padding: 2px 0px;
-}
-div.figure {
-text-align: center;
-}
-img {
-background-color: #FFFFFF;
-padding: 2px;
-border: 1px solid #DDDDDD;
-border-radius: 3px;
-border: 1px solid #CCCCCC;
-margin: 0 5px;
-}
-h1 {
-margin-top: 0;
-font-size: 35px;
-line-height: 40px;
-}
-h2 {
-border-bottom: 4px solid #f7f7f7;
-padding-top: 10px;
-padding-bottom: 2px;
-font-size: 145%;
-}
-h3 {
-border-bottom: 2px solid #f7f7f7;
-padding-top: 10px;
-font-size: 120%;
-}
-h4 {
-border-bottom: 1px solid #f7f7f7;
-margin-left: 8px;
-font-size: 105%;
-}
-h5, h6 {
-border-bottom: 1px solid #ccc;
-font-size: 105%;
-}
-a {
-color: #0033dd;
-text-decoration: none;
-}
-a:hover {
-color: #6666ff; }
-a:visited {
-color: #800080; }
-a:visited:hover {
-color: #BB00BB; }
-a[href^="http:"] {
-text-decoration: underline; }
-a[href^="https:"] {
-text-decoration: underline; }
 
-code > span.kw { color: #555; font-weight: bold; } 
-code > span.dt { color: #902000; } 
-code > span.dv { color: #40a070; } 
-code > span.bn { color: #d14; } 
-code > span.fl { color: #d14; } 
-code > span.ch { color: #d14; } 
-code > span.st { color: #d14; } 
-code > span.co { color: #888888; font-style: italic; } 
-code > span.ot { color: #007020; } 
-code > span.al { color: #ff0000; font-weight: bold; } 
-code > span.fu { color: #900; font-weight: bold; } 
-code > span.er { color: #a61717; background-color: #e3d2d2; } 
-</style>
+<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
 
 
 
@@ -314,7 +140,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Using the freq_test Function</h1>
 <h4 class="author">Brad Cannell</h4>
-<h4 class="date">Created: 2017-11-10 <br> Updated: 2020-07-15</h4>
+<h4 class="date">Created: 2017-11-10 <br> Updated: 2022-04-03</h4>
 
 
 
@@ -331,9 +157,9 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
     border-left: 4px solid #66b3ff;
   }
 </style>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(freqtables)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">data</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(freqtables)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span></code></pre></div>
 <p>This vignette is about testing differences in frequencies/proportions, which is a common task in my data analysis workflow. Additionally, it’s important to me that these tools work well in a dplyr pipeline.</p>
 <p>Because we want different behavior for different classes of inputs, freq_test is an S3 generic function with multiple methods.</p>
 <p>The name freq_test is easy to reason about, sounds similar to freq_table, which must be the input to freq_test, and is general enough to contain chi-square, fisher, etc.</p>
@@ -363,18 +189,18 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h2>Two categories</h2>
 <p>In some cases, we collect data from a single sample of people and measure the proportion of those people who can be classified (or categorized) according to some characteristic of interest. For example, suppose we collected data from a group of students and wanted to know what proportion of those students could be classified as males and females.</p>
 <p>In the following code, we generate a small sample of students (n = 20). The student’s gender is drawn at random from a binomial distribution where being male or female are equally likely. Said another way, there is an equal number of male and female students on our hypothetical campus, and we have sampled a random subset of 20 of them without bias. In this context, “without bias” means that every student on our campus was equally likely to turn up in our sample.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a>students &lt;-<span class="st"> </span><span class="kw">tibble</span>(</span>
-<span id="cb3-3"><a href="#cb3-3"></a>  <span class="dt">male =</span> <span class="kw">rbinom</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
-<span id="cb3-4"><a href="#cb3-4"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">male =</span> <span class="fu">rbinom</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>Next, we can calculate the frequency with which each gender appears in our sample of 20 students.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>students <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="st">  </span><span class="kw">freq_table</span>(male)</span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#&gt; # A tibble: 2 x 9</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co">#&gt;   var   cat       n n_total percent    se t_crit   lcl   ucl</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;int&gt;   &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="co">#&gt; 1 male  0         9      20     45   11.4   2.09  23.8  68.2</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#&gt; 2 male  1        11      20     55.  11.4   2.09  31.8  76.2</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_table</span>(male)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 9</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   var   cat       n n_total percent    se t_crit   lcl   ucl</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;int&gt;   &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 male  0         9      20      45  11.4   2.09  23.8  68.2</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 male  1        11      20      55  11.4   2.09  31.8  76.2</span></span></code></pre></div>
 <p>The frequencies returned to us by <code>freq_table</code> tell us that our sample includes <em>9 females (which is 45% of all students in the sample) and 11 males (which is 55% of all students sampled)</em>. But, what about the precision of those estimates?</p>
 <p>If we are only interested in the proportion of students in our sample that are male and female, then we’re done. We have our answer. Typically, though, our interest extends beyond our little sample. What we really want to know is if the proportion of males and females differ among all students on our hypothetical campus (our superpopulation).</p>
 <p>I like the following quote from Daniel Kaplan that discusses sampling variability and its relationship to precision of our estimate:</p>
@@ -393,51 +219,51 @@ Rothman, Kenneth J. Modern Epidemiology (p. 149). Lippincot (Wolters Kluwer Hea
 <h3>Test for a difference in proportions</h3>
 <p>In the analysis above, we found that 45% of our <em>sample</em> was female and 55% of our <em>sample</em> was male. But again, we want to make reasonable estimates of whether or not the proportion of males and females differ among <em>all students on our hypothetical campus</em>. One common way to do so is with a null value hypothesis test. Specifically, in this example, we want to test the null hypothesis that the percentage of males and females among all students on our hypothetical campus are equal.</p>
 <p>We can do so using methods based on the sample proportion of cases. They assume the normal approximation to the binomial distribution is valid. This assumption is reasonable when np0q0 ≥ 5 (Rosner, 2015, page 249).</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>students <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="st">  </span><span class="kw">freq_table</span>(male) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="st">  </span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="st">  </span><span class="co"># Test for equal proportions</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="st">  </span><span class="kw">summarise</span>(</span>
-<span id="cb5-6"><a href="#cb5-6"></a>    <span class="dt">p_bar =</span> n[<span class="dv">1</span>] <span class="op">/</span><span class="st"> </span>n_total[<span class="dv">1</span>],</span>
-<span id="cb5-7"><a href="#cb5-7"></a>    <span class="dt">p0 =</span> <span class="fl">0.5</span>,</span>
-<span id="cb5-8"><a href="#cb5-8"></a>    <span class="dt">n =</span> n_total[<span class="dv">1</span>],</span>
-<span id="cb5-9"><a href="#cb5-9"></a>    <span class="dt">z =</span> <span class="kw">abs</span>((p_bar <span class="op">-</span><span class="st"> </span>p0)) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(p0 <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>p0) <span class="op">/</span><span class="st"> </span>n),</span>
-<span id="cb5-10"><a href="#cb5-10"></a>    <span class="dt">p =</span> <span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(z, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</span>
-<span id="cb5-11"><a href="#cb5-11"></a>  )</span>
-<span id="cb5-12"><a href="#cb5-12"></a><span class="co">#&gt; # A tibble: 1 x 5</span></span>
-<span id="cb5-13"><a href="#cb5-13"></a><span class="co">#&gt;   p_bar    p0     n     z     p</span></span>
-<span id="cb5-14"><a href="#cb5-14"></a><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb5-15"><a href="#cb5-15"></a><span class="co">#&gt; 1  0.45   0.5    20 0.447 0.655</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_table</span>(male) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Test for equal proportions</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_bar =</span> n[<span class="dv">1</span>] <span class="sc">/</span> n_total[<span class="dv">1</span>],</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">p0 =</span> <span class="fl">0.5</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> n_total[<span class="dv">1</span>],</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">z =</span> <span class="fu">abs</span>((p_bar <span class="sc">-</span> p0)) <span class="sc">/</span> <span class="fu">sqrt</span>(p0 <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p0) <span class="sc">/</span> n),</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">p =</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(z, <span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 5</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   p_bar    p0     n     z     p</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  0.45   0.5    20 0.447 0.655</span></span></code></pre></div>
 <p>We can also get this value from R’s built-in <code>prop.test</code> and R’s built-in <code>chisq.test</code>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">prop.test</span>(<span class="dv">9</span>, <span class="dv">20</span>, <span class="dt">p =</span> <span class="fl">0.5</span>, <span class="dt">correct =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="co">#&gt; </span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="co">#&gt;  1-sample proportions test without continuity correction</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co">#&gt; </span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="co">#&gt; data:  9 out of 20, null probability 0.5</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="co">#&gt; X-squared = 0.2, df = 1, p-value = 0.6547</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="co">#&gt; alternative hypothesis: true p is not equal to 0.5</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="co">#&gt;  0.2581979 0.6579147</span></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="co">#&gt; sample estimates:</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="co">#&gt;    p </span></span>
-<span id="cb6-12"><a href="#cb6-12"></a><span class="co">#&gt; 0.45</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">chisq.test</span>(<span class="kw">c</span>(<span class="dv">9</span>, <span class="dv">11</span>), <span class="dt">p =</span> <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="dt">correct =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="co">#&gt; </span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="co">#&gt;  Chi-squared test for given probabilities</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt; </span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt; data:  c(9, 11)</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt; X-squared = 0.2, df = 1, p-value = 0.6547</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="dv">9</span>, <span class="dv">20</span>, <span class="at">p =</span> <span class="fl">0.5</span>, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1-sample proportions test without continuity correction</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  9 out of 20, null probability 0.5</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; X-squared = 0.2, df = 1, p-value = 0.6547</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true p is not equal to 0.5</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.2581979 0.6579147</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    p </span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0.45</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">11</span>), <span class="at">p =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Chi-squared test for given probabilities</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  c(9, 11)</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; X-squared = 0.2, df = 1, p-value = 0.6547</span></span></code></pre></div>
 <p>Finally, I’ve built this test into <code>freqtables::freq_test</code>, which is designed to work in a <code>dplyr</code> pipeline.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>students <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="st">  </span><span class="kw">freq_table</span>(male) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="st">  </span><span class="kw">freq_test</span>()</span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="co">#&gt; # A tibble: 2 x 14</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="co">#&gt;   var   cat       n n_total percent    se t_crit   lcl   ucl n_expected</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;int&gt;   &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="co">#&gt; 1 male  0         9      20     45   11.4   2.09  23.8  68.2         10</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="co">#&gt; 2 male  1        11      20     55.  11.4   2.09  31.8  76.2         10</span></span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="co">#&gt; # … with 4 more variables: chi2_contrib &lt;dbl&gt;, chi2_pearson &lt;dbl&gt;, df &lt;dbl&gt;,</span></span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="co">#&gt; #   p_chi2_pearson &lt;dbl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_table</span>(male) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_test</span>()</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 14</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   var   cat       n n_total percent    se t_crit   lcl   ucl n_expected</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;int&gt;   &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 male  0         9      20      45  11.4   2.09  23.8  68.2         10</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 male  1        11      20      55  11.4   2.09  31.8  76.2         10</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 4 more variables: chi2_contrib &lt;dbl&gt;, chi2_pearson &lt;dbl&gt;, df &lt;dbl&gt;,</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   p_chi2_pearson &lt;dbl&gt;</span></span></code></pre></div>
 </div>
 <div id="interpretation" class="section level3">
 <h3>Interpretation</h3>
@@ -453,13 +279,13 @@ Rothman, Kenneth J. Modern Epidemiology (p. 149). Lippincot (Wolters Kluwer Hea
 <div id="comparison-to-other-statistical-software" class="section level3">
 <h3>Comparison to other statistical software</h3>
 <p>Here, and below, will will use the mtcars data for ease of comparison.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>mtcars <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="st">  </span><span class="kw">freq_table</span>(am) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="st">  </span><span class="kw">freq_test</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="st">  </span><span class="kw">select</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, p_chi2_pearson)</span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="co">#&gt;   var cat  n n_total percent       se p_chi2_pearson</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#&gt; 1  am   0 19      32  59.375 8.820997      0.2888444</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="co">#&gt; 2  am   1 13      32  40.625 8.820997      0.2888444</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_table</span>(am) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_test</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, p_chi2_pearson)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   var cat  n n_total percent       se p_chi2_pearson</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  am   0 19      32  59.375 8.820997      0.2888444</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  am   1 13      32  40.625 8.820997      0.2888444</span></span></code></pre></div>
 <p> </p>
 <p>These results match the results obtained from Stata and SAS (see below).</p>
 <p> </p>
@@ -491,17 +317,17 @@ Rothman, Kenneth J. Modern Epidemiology (p. 149). Lippincot (Wolters Kluwer Hea
 <h2>More than two categories</h2>
 <p>In this example we are still testing for equality of proportions. However, now we are testing for equality across more than two categories.</p>
 <p>Notice that the syntax doesn’t change. In fact, there isn’t even an additional method needed for this scenario.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>mtcars <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="st">  </span><span class="kw">freq_table</span>(cyl) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="st">  </span><span class="kw">freq_test</span>()</span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="co">#&gt;   var cat  n n_total percent       se   t_crit      lcl      ucl n_expected</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="co">#&gt; 1 cyl   4 11      32  34.375 8.530513 2.039513 19.49961 53.11130   10.66667</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="co">#&gt; 2 cyl   6  7      32  21.875 7.424859 2.039513 10.34883 40.44691   10.66667</span></span>
-<span id="cb10-7"><a href="#cb10-7"></a><span class="co">#&gt; 3 cyl   8 14      32  43.750 8.909831 2.039513 27.09672 61.94211   10.66667</span></span>
-<span id="cb10-8"><a href="#cb10-8"></a><span class="co">#&gt;   chi2_contrib chi2_pearson df p_chi2_pearson</span></span>
-<span id="cb10-9"><a href="#cb10-9"></a><span class="co">#&gt; 1   0.01041667       2.3125  2       0.314664</span></span>
-<span id="cb10-10"><a href="#cb10-10"></a><span class="co">#&gt; 2   1.26041667       2.3125  2       0.314664</span></span>
-<span id="cb10-11"><a href="#cb10-11"></a><span class="co">#&gt; 3   1.04166667       2.3125  2       0.314664</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_table</span>(cyl) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_test</span>()</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   var cat  n n_total percent       se   t_crit      lcl      ucl n_expected</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 cyl   4 11      32  34.375 8.530513 2.039513 19.49961 53.11130   10.66667</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 cyl   6  7      32  21.875 7.424859 2.039513 10.34883 40.44691   10.66667</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 cyl   8 14      32  43.750 8.909831 2.039513 27.09672 61.94211   10.66667</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   chi2_contrib chi2_pearson df p_chi2_pearson</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   0.01041667       2.3125  2       0.314664</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   1.26041667       2.3125  2       0.314664</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   1.04166667       2.3125  2       0.314664</span></span></code></pre></div>
 <p> </p>
 <p>This is the same result we get from SAS. I was unable to find an easy way to do this test in Stata.</p>
 <p> </p>
@@ -521,47 +347,47 @@ Rothman, Kenneth J. Modern Epidemiology (p. 149). Lippincot (Wolters Kluwer Hea
 <p>Now, suppose we are interested in the <em>relationship between</em> two categorical variables. More precisely, we can estimate the degree of compatibility between our observed values, and the values we would expect to observe if the two characteristics we are analyzing were independent (i.e., knowing the value of one characteristic tells you nothing about the value of the other characteristic).</p>
 <p>For example, earlier we found that our data were compatible with the hypothesis that there are equal proportions of females and males on our hypothetical campus – our superpopulation. Now, we suspect that females and males in our superpopulation differ with respect to their binge drinking behavior.</p>
 <p>To investigate this hypothesis further, we will collect data from a simple random sample of students, measure their gender, and measure whether they binge drank in the last 30 days or not (yes/no). Then we will use the chi-square test of independence to draw conclusions about the degree of compatibility between our data, and the data we would expect to observe if binge drinking and gender were independent of one another.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">set.seed</span>(<span class="dv">456</span>)</span>
-<span id="cb11-2"><a href="#cb11-2"></a>students &lt;-<span class="st"> </span><span class="kw">tibble</span>(</span>
-<span id="cb11-3"><a href="#cb11-3"></a>  <span class="dt">male  =</span> <span class="kw">rbinom</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="fl">0.5</span>),</span>
-<span id="cb11-4"><a href="#cb11-4"></a>  <span class="dt">binge =</span> <span class="kw">if_else</span>(male <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, </span>
-<span id="cb11-5"><a href="#cb11-5"></a>                  <span class="kw">rbinom</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="fl">0.10</span>), <span class="co"># 10% of females binge drink </span></span>
-<span id="cb11-6"><a href="#cb11-6"></a>                  <span class="kw">rbinom</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="fl">0.30</span>)) <span class="co"># 30% of males binge drink</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a>)</span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>students <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="st">  </span><span class="kw">freq_table</span>(male, binge) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="st">  </span><span class="kw">freq_test</span>()</span>
-<span id="cb12-4"><a href="#cb12-4"></a><span class="co">#&gt; One or more expected cell counts are &lt;= 5. Therefore, Fisher&#39;s Exact Test was used.</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a><span class="co">#&gt; # A tibble: 4 x 26</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a><span class="co">#&gt;   row_var row_cat col_var col_cat     n n_row n_total percent_total se_total</span></span>
-<span id="cb12-7"><a href="#cb12-7"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;int&gt; &lt;int&gt;   &lt;int&gt;         &lt;dbl&gt;    &lt;dbl&gt;</span></span>
-<span id="cb12-8"><a href="#cb12-8"></a><span class="co">#&gt; 1 male    0       binge   0           8    11      20            40    11.2 </span></span>
-<span id="cb12-9"><a href="#cb12-9"></a><span class="co">#&gt; 2 male    0       binge   1           3    11      20            15     8.19</span></span>
-<span id="cb12-10"><a href="#cb12-10"></a><span class="co">#&gt; 3 male    1       binge   0           7     9      20            35    10.9 </span></span>
-<span id="cb12-11"><a href="#cb12-11"></a><span class="co">#&gt; 4 male    1       binge   1           2     9      20            10     6.88</span></span>
-<span id="cb12-12"><a href="#cb12-12"></a><span class="co">#&gt; # … with 17 more variables: t_crit_total &lt;dbl&gt;, lcl_total &lt;dbl&gt;,</span></span>
-<span id="cb12-13"><a href="#cb12-13"></a><span class="co">#&gt; #   ucl_total &lt;dbl&gt;, percent_row &lt;dbl&gt;, se_row &lt;dbl&gt;, t_crit_row &lt;dbl&gt;,</span></span>
-<span id="cb12-14"><a href="#cb12-14"></a><span class="co">#&gt; #   lcl_row &lt;dbl&gt;, ucl_row &lt;dbl&gt;, n_col &lt;int&gt;, n_expected &lt;dbl&gt;,</span></span>
-<span id="cb12-15"><a href="#cb12-15"></a><span class="co">#&gt; #   chi2_contrib &lt;dbl&gt;, chi2_pearson &lt;dbl&gt;, r &lt;int&gt;, c &lt;int&gt;, df &lt;dbl&gt;,</span></span>
-<span id="cb12-16"><a href="#cb12-16"></a><span class="co">#&gt; #   p_chi2_pearson &lt;dbl&gt;, p_fisher &lt;dbl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">456</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">male  =</span> <span class="fu">rbinom</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="fl">0.5</span>),</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">binge =</span> <span class="fu">if_else</span>(male <span class="sc">==</span> <span class="dv">0</span>, </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">rbinom</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="fl">0.10</span>), <span class="co"># 10% of females binge drink </span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">rbinom</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="fl">0.30</span>)) <span class="co"># 30% of males binge drink</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_table</span>(male, binge) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_test</span>()</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; One or more expected cell counts are &lt;= 5. Therefore, Fisher&#39;s Exact Test was used.</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 26</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   row_var row_cat col_var col_cat     n n_row n_total percent_total se_total</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;int&gt; &lt;int&gt;   &lt;int&gt;         &lt;dbl&gt;    &lt;dbl&gt;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 male    0       binge   0           8    11      20            40    11.2 </span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 male    0       binge   1           3    11      20            15     8.19</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 male    1       binge   0           7     9      20            35    10.9 </span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 male    1       binge   1           2     9      20            10     6.88</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 17 more variables: t_crit_total &lt;dbl&gt;, lcl_total &lt;dbl&gt;,</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   ucl_total &lt;dbl&gt;, percent_row &lt;dbl&gt;, se_row &lt;dbl&gt;, t_crit_row &lt;dbl&gt;,</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   lcl_row &lt;dbl&gt;, ucl_row &lt;dbl&gt;, n_col &lt;int&gt;, n_expected &lt;dbl&gt;,</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   chi2_contrib &lt;dbl&gt;, chi2_pearson &lt;dbl&gt;, r &lt;int&gt;, c &lt;int&gt;, df &lt;dbl&gt;,</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   p_chi2_pearson &lt;dbl&gt;, p_fisher &lt;dbl&gt;</span></span></code></pre></div>
 <p>There are a couple things worth mentioning here. First, 27% of the females in our sample engaged in binge drinking, compared to 22% of males – even though we know that the underlying probability in our superpopulation was 10% for females and 30% for males. This discrepancy highlights the potential for sampling variability, and small sample estimates, to be misleading.</p>
 <p>Additionally, because some expected cell counts were less than 5, we should estimate our p-value using Fisher’s exact method.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>students <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="st">  </span><span class="kw">freq_table</span>(male, binge) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="st">  </span><span class="kw">freq_test</span>()</span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="co">#&gt; One or more expected cell counts are &lt;= 5. Therefore, Fisher&#39;s Exact Test was used.</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a><span class="co">#&gt; # A tibble: 4 x 26</span></span>
-<span id="cb13-6"><a href="#cb13-6"></a><span class="co">#&gt;   row_var row_cat col_var col_cat     n n_row n_total percent_total se_total</span></span>
-<span id="cb13-7"><a href="#cb13-7"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;int&gt; &lt;int&gt;   &lt;int&gt;         &lt;dbl&gt;    &lt;dbl&gt;</span></span>
-<span id="cb13-8"><a href="#cb13-8"></a><span class="co">#&gt; 1 male    0       binge   0           8    11      20            40    11.2 </span></span>
-<span id="cb13-9"><a href="#cb13-9"></a><span class="co">#&gt; 2 male    0       binge   1           3    11      20            15     8.19</span></span>
-<span id="cb13-10"><a href="#cb13-10"></a><span class="co">#&gt; 3 male    1       binge   0           7     9      20            35    10.9 </span></span>
-<span id="cb13-11"><a href="#cb13-11"></a><span class="co">#&gt; 4 male    1       binge   1           2     9      20            10     6.88</span></span>
-<span id="cb13-12"><a href="#cb13-12"></a><span class="co">#&gt; # … with 17 more variables: t_crit_total &lt;dbl&gt;, lcl_total &lt;dbl&gt;,</span></span>
-<span id="cb13-13"><a href="#cb13-13"></a><span class="co">#&gt; #   ucl_total &lt;dbl&gt;, percent_row &lt;dbl&gt;, se_row &lt;dbl&gt;, t_crit_row &lt;dbl&gt;,</span></span>
-<span id="cb13-14"><a href="#cb13-14"></a><span class="co">#&gt; #   lcl_row &lt;dbl&gt;, ucl_row &lt;dbl&gt;, n_col &lt;int&gt;, n_expected &lt;dbl&gt;,</span></span>
-<span id="cb13-15"><a href="#cb13-15"></a><span class="co">#&gt; #   chi2_contrib &lt;dbl&gt;, chi2_pearson &lt;dbl&gt;, r &lt;int&gt;, c &lt;int&gt;, df &lt;dbl&gt;,</span></span>
-<span id="cb13-16"><a href="#cb13-16"></a><span class="co">#&gt; #   p_chi2_pearson &lt;dbl&gt;, p_fisher &lt;dbl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_table</span>(male, binge) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_test</span>()</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; One or more expected cell counts are &lt;= 5. Therefore, Fisher&#39;s Exact Test was used.</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 26</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   row_var row_cat col_var col_cat     n n_row n_total percent_total se_total</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;int&gt; &lt;int&gt;   &lt;int&gt;         &lt;dbl&gt;    &lt;dbl&gt;</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 male    0       binge   0           8    11      20            40    11.2 </span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 male    0       binge   1           3    11      20            15     8.19</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 male    1       binge   0           7     9      20            35    10.9 </span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 male    1       binge   1           2     9      20            10     6.88</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 17 more variables: t_crit_total &lt;dbl&gt;, lcl_total &lt;dbl&gt;,</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   ucl_total &lt;dbl&gt;, percent_row &lt;dbl&gt;, se_row &lt;dbl&gt;, t_crit_row &lt;dbl&gt;,</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   lcl_row &lt;dbl&gt;, ucl_row &lt;dbl&gt;, n_col &lt;int&gt;, n_expected &lt;dbl&gt;,</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   chi2_contrib &lt;dbl&gt;, chi2_pearson &lt;dbl&gt;, r &lt;int&gt;, c &lt;int&gt;, df &lt;dbl&gt;,</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   p_chi2_pearson &lt;dbl&gt;, p_fisher &lt;dbl&gt;</span></span></code></pre></div>
 <div id="interpretation-1" class="section level3">
 <h3>Interpretation</h3>
 <p>The large p-value (p = 1.0) calculated using Fisher’s exact method indicates that the data are highly consistent with the null hypothesis of statistical independence between gender and binge drinking at our hypothetical campus, assuming that the null hypothesis is true and the study is free of bias. However, wide range of the 95% confidence intervals makes the precision of the point estimates doubtful. Another study using larger sample size is needed to get a more precise estimate of the relationship between gender and binge drinking.</p>
@@ -579,18 +405,18 @@ Rothman, Kenneth J. Modern Epidemiology (p. 149). Lippincot (Wolters Kluwer Hea
 </div>
 <div id="comparison-to-other-statistical-software-1" class="section level3">
 <h3>Comparison to other statistical software</h3>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>mtcars <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="st">  </span><span class="kw">freq_table</span>(am, vs) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="st">  </span><span class="kw">freq_test</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="st">  </span><span class="kw">select</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>, p_chi2_pearson)</span>
-<span id="cb14-5"><a href="#cb14-5"></a><span class="co">#&gt; # A tibble: 4 x 9</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a><span class="co">#&gt;   row_var row_cat col_var col_cat     n n_row n_total percent_total</span></span>
-<span id="cb14-7"><a href="#cb14-7"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;int&gt; &lt;int&gt;   &lt;int&gt;         &lt;dbl&gt;</span></span>
-<span id="cb14-8"><a href="#cb14-8"></a><span class="co">#&gt; 1 am      0       vs      0          12    19      32          37.5</span></span>
-<span id="cb14-9"><a href="#cb14-9"></a><span class="co">#&gt; 2 am      0       vs      1           7    19      32          21.9</span></span>
-<span id="cb14-10"><a href="#cb14-10"></a><span class="co">#&gt; 3 am      1       vs      0           6    13      32          18.8</span></span>
-<span id="cb14-11"><a href="#cb14-11"></a><span class="co">#&gt; 4 am      1       vs      1           7    13      32          21.9</span></span>
-<span id="cb14-12"><a href="#cb14-12"></a><span class="co">#&gt; # … with 1 more variable: p_chi2_pearson &lt;dbl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_table</span>(am, vs) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_test</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>, p_chi2_pearson)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 9</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   row_var row_cat col_var col_cat     n n_row n_total percent_total</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;int&gt; &lt;int&gt;   &lt;int&gt;         &lt;dbl&gt;</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 am      0       vs      0          12    19      32          37.5</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 am      0       vs      1           7    19      32          21.9</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 am      1       vs      0           6    13      32          18.8</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 am      1       vs      1           7    13      32          21.9</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 1 more variable: p_chi2_pearson &lt;dbl&gt;</span></span></code></pre></div>
 <p> </p>
 <div id="stata-1" class="section level4">
 <h4>Stata</h4>
@@ -611,47 +437,47 @@ Rothman, Kenneth J. Modern Epidemiology (p. 149). Lippincot (Wolters Kluwer Hea
 <h1>Bivariate Analysis</h1>
 <div id="biv-n-cat" class="section level2">
 <h2>More than two categories</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>mtcars <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="st">  </span><span class="kw">freq_table</span>(am, cyl) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="st">  </span><span class="kw">freq_test</span>()</span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="co">#&gt; One or more expected cell counts are &lt;= 5. Therefore, Fisher&#39;s Exact Test was used.</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="co">#&gt; # A tibble: 6 x 26</span></span>
-<span id="cb15-6"><a href="#cb15-6"></a><span class="co">#&gt;   row_var row_cat col_var col_cat     n n_row n_total percent_total se_total</span></span>
-<span id="cb15-7"><a href="#cb15-7"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;int&gt; &lt;int&gt;   &lt;int&gt;         &lt;dbl&gt;    &lt;dbl&gt;</span></span>
-<span id="cb15-8"><a href="#cb15-8"></a><span class="co">#&gt; 1 am      0       cyl     4           3    19      32          9.38     5.24</span></span>
-<span id="cb15-9"><a href="#cb15-9"></a><span class="co">#&gt; 2 am      0       cyl     6           4    19      32         12.5      5.94</span></span>
-<span id="cb15-10"><a href="#cb15-10"></a><span class="co">#&gt; 3 am      0       cyl     8          12    19      32         37.5      8.70</span></span>
-<span id="cb15-11"><a href="#cb15-11"></a><span class="co">#&gt; 4 am      1       cyl     4           8    13      32         25        7.78</span></span>
-<span id="cb15-12"><a href="#cb15-12"></a><span class="co">#&gt; 5 am      1       cyl     6           3    13      32          9.38     5.24</span></span>
-<span id="cb15-13"><a href="#cb15-13"></a><span class="co">#&gt; 6 am      1       cyl     8           2    13      32          6.25     4.35</span></span>
-<span id="cb15-14"><a href="#cb15-14"></a><span class="co">#&gt; # … with 17 more variables: t_crit_total &lt;dbl&gt;, lcl_total &lt;dbl&gt;,</span></span>
-<span id="cb15-15"><a href="#cb15-15"></a><span class="co">#&gt; #   ucl_total &lt;dbl&gt;, percent_row &lt;dbl&gt;, se_row &lt;dbl&gt;, t_crit_row &lt;dbl&gt;,</span></span>
-<span id="cb15-16"><a href="#cb15-16"></a><span class="co">#&gt; #   lcl_row &lt;dbl&gt;, ucl_row &lt;dbl&gt;, n_col &lt;int&gt;, n_expected &lt;dbl&gt;,</span></span>
-<span id="cb15-17"><a href="#cb15-17"></a><span class="co">#&gt; #   chi2_contrib &lt;dbl&gt;, chi2_pearson &lt;dbl&gt;, r &lt;int&gt;, c &lt;int&gt;, df &lt;dbl&gt;,</span></span>
-<span id="cb15-18"><a href="#cb15-18"></a><span class="co">#&gt; #   p_chi2_pearson &lt;dbl&gt;, p_fisher &lt;dbl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_table</span>(am, cyl) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_test</span>()</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; One or more expected cell counts are &lt;= 5. Therefore, Fisher&#39;s Exact Test was used.</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 26</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   row_var row_cat col_var col_cat     n n_row n_total percent_total se_total</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;int&gt; &lt;int&gt;   &lt;int&gt;         &lt;dbl&gt;    &lt;dbl&gt;</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 am      0       cyl     4           3    19      32          9.38     5.24</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 am      0       cyl     6           4    19      32         12.5      5.94</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 am      0       cyl     8          12    19      32         37.5      8.70</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 am      1       cyl     4           8    13      32         25        7.78</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 am      1       cyl     6           3    13      32          9.38     5.24</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 am      1       cyl     8           2    13      32          6.25     4.35</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 17 more variables: t_crit_total &lt;dbl&gt;, lcl_total &lt;dbl&gt;,</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   ucl_total &lt;dbl&gt;, percent_row &lt;dbl&gt;, se_row &lt;dbl&gt;, t_crit_row &lt;dbl&gt;,</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   lcl_row &lt;dbl&gt;, ucl_row &lt;dbl&gt;, n_col &lt;int&gt;, n_expected &lt;dbl&gt;,</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   chi2_contrib &lt;dbl&gt;, chi2_pearson &lt;dbl&gt;, r &lt;int&gt;, c &lt;int&gt;, df &lt;dbl&gt;,</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   p_chi2_pearson &lt;dbl&gt;, p_fisher &lt;dbl&gt;</span></span></code></pre></div>
 <p> </p>
 <blockquote>
 <p>There is one problem with the chi-square test, which is that the sampling distribution of the test statistic has an approximate chi-square distribution. The larger the sample is, the better this approximation becomes, and in large samples the approximation is good enough to not worry about the fact that it is an approximation. However, in small samples the approximation is not good enough, making significance tests of the chi-square distribution inaccurate.</p>
 <p>Field, Andy; Miles, Jeremy; Field, Zoe. Discovering Statistics Using R (p. 816). SAGE Publications. Kindle Edition.</p>
 </blockquote>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>mtcars <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="st">  </span><span class="kw">freq_table</span>(am, cyl) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="st">  </span><span class="kw">freq_test</span>()</span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="co">#&gt; One or more expected cell counts are &lt;= 5. Therefore, Fisher&#39;s Exact Test was used.</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="co">#&gt; # A tibble: 6 x 26</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a><span class="co">#&gt;   row_var row_cat col_var col_cat     n n_row n_total percent_total se_total</span></span>
-<span id="cb16-7"><a href="#cb16-7"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;int&gt; &lt;int&gt;   &lt;int&gt;         &lt;dbl&gt;    &lt;dbl&gt;</span></span>
-<span id="cb16-8"><a href="#cb16-8"></a><span class="co">#&gt; 1 am      0       cyl     4           3    19      32          9.38     5.24</span></span>
-<span id="cb16-9"><a href="#cb16-9"></a><span class="co">#&gt; 2 am      0       cyl     6           4    19      32         12.5      5.94</span></span>
-<span id="cb16-10"><a href="#cb16-10"></a><span class="co">#&gt; 3 am      0       cyl     8          12    19      32         37.5      8.70</span></span>
-<span id="cb16-11"><a href="#cb16-11"></a><span class="co">#&gt; 4 am      1       cyl     4           8    13      32         25        7.78</span></span>
-<span id="cb16-12"><a href="#cb16-12"></a><span class="co">#&gt; 5 am      1       cyl     6           3    13      32          9.38     5.24</span></span>
-<span id="cb16-13"><a href="#cb16-13"></a><span class="co">#&gt; 6 am      1       cyl     8           2    13      32          6.25     4.35</span></span>
-<span id="cb16-14"><a href="#cb16-14"></a><span class="co">#&gt; # … with 17 more variables: t_crit_total &lt;dbl&gt;, lcl_total &lt;dbl&gt;,</span></span>
-<span id="cb16-15"><a href="#cb16-15"></a><span class="co">#&gt; #   ucl_total &lt;dbl&gt;, percent_row &lt;dbl&gt;, se_row &lt;dbl&gt;, t_crit_row &lt;dbl&gt;,</span></span>
-<span id="cb16-16"><a href="#cb16-16"></a><span class="co">#&gt; #   lcl_row &lt;dbl&gt;, ucl_row &lt;dbl&gt;, n_col &lt;int&gt;, n_expected &lt;dbl&gt;,</span></span>
-<span id="cb16-17"><a href="#cb16-17"></a><span class="co">#&gt; #   chi2_contrib &lt;dbl&gt;, chi2_pearson &lt;dbl&gt;, r &lt;int&gt;, c &lt;int&gt;, df &lt;dbl&gt;,</span></span>
-<span id="cb16-18"><a href="#cb16-18"></a><span class="co">#&gt; #   p_chi2_pearson &lt;dbl&gt;, p_fisher &lt;dbl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_table</span>(am, cyl) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_test</span>()</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; One or more expected cell counts are &lt;= 5. Therefore, Fisher&#39;s Exact Test was used.</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 26</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   row_var row_cat col_var col_cat     n n_row n_total percent_total se_total</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;int&gt; &lt;int&gt;   &lt;int&gt;         &lt;dbl&gt;    &lt;dbl&gt;</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 am      0       cyl     4           3    19      32          9.38     5.24</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 am      0       cyl     6           4    19      32         12.5      5.94</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 am      0       cyl     8          12    19      32         37.5      8.70</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 am      1       cyl     4           8    13      32         25        7.78</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 am      1       cyl     6           3    13      32          9.38     5.24</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 am      1       cyl     8           2    13      32          6.25     4.35</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 17 more variables: t_crit_total &lt;dbl&gt;, lcl_total &lt;dbl&gt;,</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   ucl_total &lt;dbl&gt;, percent_row &lt;dbl&gt;, se_row &lt;dbl&gt;, t_crit_row &lt;dbl&gt;,</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   lcl_row &lt;dbl&gt;, ucl_row &lt;dbl&gt;, n_col &lt;int&gt;, n_expected &lt;dbl&gt;,</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   chi2_contrib &lt;dbl&gt;, chi2_pearson &lt;dbl&gt;, r &lt;int&gt;, c &lt;int&gt;, df &lt;dbl&gt;,</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   p_chi2_pearson &lt;dbl&gt;, p_fisher &lt;dbl&gt;</span></span></code></pre></div>
 <blockquote>
 <p>Interpret</p>
 <p>Compare to Stata and SAS</p>
@@ -683,38 +509,38 @@ Rothman, Kenneth J. Modern Epidemiology (p. 149). Lippincot (Wolters Kluwer Hea
 <p>where,</p>
 <p><span class="math display">\[expected_{ij} = \frac{row \ total * column \ total}{total}\]</span></p>
 <p>For example:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>mtcars <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="st">  </span><span class="kw">freq_table</span>(am, vs) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb17-3"><a href="#cb17-3"></a><span class="st">  </span><span class="kw">freq_test</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb17-4"><a href="#cb17-4"></a><span class="st">  </span><span class="kw">select</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, n_col, n_total, n_expected<span class="op">:</span>chi2_pearson)</span>
-<span id="cb17-5"><a href="#cb17-5"></a><span class="co">#&gt; # A tibble: 4 x 9</span></span>
-<span id="cb17-6"><a href="#cb17-6"></a><span class="co">#&gt;   row_var row_cat col_var col_cat n_col n_total n_expected chi2_contrib</span></span>
-<span id="cb17-7"><a href="#cb17-7"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;int&gt;   &lt;int&gt;      &lt;dbl&gt;        &lt;dbl&gt;</span></span>
-<span id="cb17-8"><a href="#cb17-8"></a><span class="co">#&gt; 1 am      0       vs      0          18      32      10.7         0.161</span></span>
-<span id="cb17-9"><a href="#cb17-9"></a><span class="co">#&gt; 2 am      0       vs      1          14      32       8.31        0.207</span></span>
-<span id="cb17-10"><a href="#cb17-10"></a><span class="co">#&gt; 3 am      1       vs      0          18      32       7.31        0.236</span></span>
-<span id="cb17-11"><a href="#cb17-11"></a><span class="co">#&gt; 4 am      1       vs      1          14      32       5.69        0.303</span></span>
-<span id="cb17-12"><a href="#cb17-12"></a><span class="co">#&gt; # … with 1 more variable: chi2_pearson &lt;dbl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_table</span>(am, vs) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_test</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, n_col, n_total, n_expected<span class="sc">:</span>chi2_pearson)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 9</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   row_var row_cat col_var col_cat n_col n_total n_expected chi2_contrib</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;int&gt;   &lt;int&gt;      &lt;dbl&gt;        &lt;dbl&gt;</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 am      0       vs      0          18      32      10.7         0.161</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 am      0       vs      1          14      32       8.31        0.207</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 am      1       vs      0          18      32       7.31        0.236</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 am      1       vs      1          14      32       5.69        0.303</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 1 more variable: chi2_pearson &lt;dbl&gt;</span></span></code></pre></div>
 <p>After obtaining the Pearson chi-squared value (0.9068826 above), we compare it to the critical value for the chi-square distribution with degrees of freedom = (rows - 1)(columns - 1) = 1. If the observed value is bigger than the critical value, we conclude that there is a statistically significant relationship.</p>
 <p>For example:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>mtcars <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="st">  </span><span class="kw">freq_table</span>(am, vs) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="st">  </span><span class="kw">freq_test</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="st">  </span><span class="kw">select</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, chi2_pearson<span class="op">:</span>p_chi2_pearson)</span>
-<span id="cb18-5"><a href="#cb18-5"></a><span class="co">#&gt; # A tibble: 4 x 8</span></span>
-<span id="cb18-6"><a href="#cb18-6"></a><span class="co">#&gt;   row_var row_cat col_var chi2_pearson     r     c    df p_chi2_pearson</span></span>
-<span id="cb18-7"><a href="#cb18-7"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;          &lt;dbl&gt;</span></span>
-<span id="cb18-8"><a href="#cb18-8"></a><span class="co">#&gt; 1 am      0       vs             0.907     2     2     1          0.341</span></span>
-<span id="cb18-9"><a href="#cb18-9"></a><span class="co">#&gt; 2 am      0       vs             0.907     2     2     1          0.341</span></span>
-<span id="cb18-10"><a href="#cb18-10"></a><span class="co">#&gt; 3 am      1       vs             0.907     2     2     1          0.341</span></span>
-<span id="cb18-11"><a href="#cb18-11"></a><span class="co">#&gt; 4 am      1       vs             0.907     2     2     1          0.341</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_table</span>(am, vs) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_test</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, chi2_pearson<span class="sc">:</span>p_chi2_pearson)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 8</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   row_var row_cat col_var chi2_pearson     r     c    df p_chi2_pearson</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;          &lt;dbl&gt;</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 am      0       vs             0.907     2     2     1          0.341</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 am      0       vs             0.907     2     2     1          0.341</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 am      1       vs             0.907     2     2     1          0.341</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 am      1       vs             0.907     2     2     1          0.341</span></span></code></pre></div>
 <p>And this is the same result we get from R’s built-in chi-square test.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">chisq.test</span>(mtcars<span class="op">$</span>am, mtcars<span class="op">$</span>vs, <span class="dt">correct =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb19-2"><a href="#cb19-2"></a><span class="co">#&gt; </span></span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="co">#&gt;  Pearson&#39;s Chi-squared test</span></span>
-<span id="cb19-4"><a href="#cb19-4"></a><span class="co">#&gt; </span></span>
-<span id="cb19-5"><a href="#cb19-5"></a><span class="co">#&gt; data:  mtcars$am and mtcars$vs</span></span>
-<span id="cb19-6"><a href="#cb19-6"></a><span class="co">#&gt; X-squared = 0.90688, df = 1, p-value = 0.3409</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(mtcars<span class="sc">$</span>am, mtcars<span class="sc">$</span>vs, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Pearson&#39;s Chi-squared test</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  mtcars$am and mtcars$vs</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; X-squared = 0.90688, df = 1, p-value = 0.3409</span></span></code></pre></div>
 <p>However, our result has the following advantages (in my opinion):</p>
 <ul>
 <li><p>It let’s us see how the result was obtained - giving us a better intuition about what our result really means, and how it may differ if we had collected a different sample.</p></li>
@@ -755,113 +581,113 @@ Rothman, Kenneth J. Modern Epidemiology (p. 149). Lippincot (Wolters Kluwer Hea
 </blockquote>
 <p>Fisher’s exact test is computationally intensive. In order to get a feel for how it works, I’ve replicated a simple example from <a href="http://mathworld.wolfram.com/FishersExactTest.html">Wolfram MathWorld</a> below.</p>
 <p>In this example, X is a journal, say either Mathematics Magazine or Science, and Y is the number of articles on the topics of mathematics and biology appearing in a given issue of one of these journals. If Mathematics Magazine has five articles on math and one on biology, and Science has none on math and four on biology, then the relevant matrix would be:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>m_observed &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">4</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb20-2"><a href="#cb20-2"></a>m_observed</span>
-<span id="cb20-3"><a href="#cb20-3"></a><span class="co">#&gt;      [,1] [,2]</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a><span class="co">#&gt; [1,]    5    0</span></span>
-<span id="cb20-5"><a href="#cb20-5"></a><span class="co">#&gt; [2,]    1    4</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>m_observed <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">4</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>m_observed</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2]</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    5    0</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    1    4</span></span></code></pre></div>
 <p>Then calculate the conditional probability of getting the actual matrix given the particular row and column sums using the multivariate generalization of the <a href="https://www.rdocumentation.org/packages/stats/versions/3.4.3/topics/Hypergeometric">hypergeometric probability function</a>, which can be calculated as:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>p &lt;-<span class="st"> </span><span class="cf">function</span>(m) {</span>
-<span id="cb21-2"><a href="#cb21-2"></a>  </span>
-<span id="cb21-3"><a href="#cb21-3"></a>  <span class="co"># Calculate the marginal totals</span></span>
-<span id="cb21-4"><a href="#cb21-4"></a>  r1  &lt;-<span class="st"> </span><span class="kw">sum</span>(m[<span class="dv">1</span>, ])</span>
-<span id="cb21-5"><a href="#cb21-5"></a>  r2  &lt;-<span class="st"> </span><span class="kw">sum</span>(m[<span class="dv">2</span>, ])</span>
-<span id="cb21-6"><a href="#cb21-6"></a>  c1  &lt;-<span class="st"> </span><span class="kw">sum</span>(m[, <span class="dv">1</span>])</span>
-<span id="cb21-7"><a href="#cb21-7"></a>  c2  &lt;-<span class="st"> </span><span class="kw">sum</span>(m[, <span class="dv">2</span>])</span>
-<span id="cb21-8"><a href="#cb21-8"></a>  tot &lt;-<span class="st"> </span><span class="kw">sum</span>(m)</span>
-<span id="cb21-9"><a href="#cb21-9"></a>  </span>
-<span id="cb21-10"><a href="#cb21-10"></a>  <span class="co"># Calculate the conditional probability of getting the actual matrix given </span></span>
-<span id="cb21-11"><a href="#cb21-11"></a>  <span class="co"># the particular row and column sums</span></span>
-<span id="cb21-12"><a href="#cb21-12"></a>  r1_fac  &lt;-<span class="st"> </span><span class="kw">factorial</span>(r1)</span>
-<span id="cb21-13"><a href="#cb21-13"></a>  r2_fac  &lt;-<span class="st"> </span><span class="kw">factorial</span>(r2)</span>
-<span id="cb21-14"><a href="#cb21-14"></a>  c1_fac  &lt;-<span class="st"> </span><span class="kw">factorial</span>(c1)</span>
-<span id="cb21-15"><a href="#cb21-15"></a>  c2_fac  &lt;-<span class="st"> </span><span class="kw">factorial</span>(c2)</span>
-<span id="cb21-16"><a href="#cb21-16"></a>  tot_fac &lt;-<span class="st"> </span><span class="kw">factorial</span>(tot)</span>
-<span id="cb21-17"><a href="#cb21-17"></a>  </span>
-<span id="cb21-18"><a href="#cb21-18"></a>  m_fac      &lt;-<span class="st"> </span><span class="kw">factorial</span>(m) <span class="co"># factorial of each cell of the matrix (i.e., 5!, 0!, 1!, 4!)</span></span>
-<span id="cb21-19"><a href="#cb21-19"></a>  prod_m_fac &lt;-<span class="st"> </span><span class="kw">prod</span>(m_fac)  <span class="co"># Multiply all of those values together</span></span>
-<span id="cb21-20"><a href="#cb21-20"></a>  </span>
-<span id="cb21-21"><a href="#cb21-21"></a>  numerator   &lt;-<span class="st"> </span>r1_fac <span class="op">*</span><span class="st"> </span>r2_fac <span class="op">*</span><span class="st"> </span>c1_fac <span class="op">*</span><span class="st"> </span>c2_fac</span>
-<span id="cb21-22"><a href="#cb21-22"></a>  denominator &lt;-<span class="st"> </span>tot_fac <span class="op">*</span><span class="st"> </span>(prod_m_fac)</span>
-<span id="cb21-23"><a href="#cb21-23"></a>  p &lt;-<span class="st"> </span>numerator <span class="op">/</span><span class="st"> </span>denominator</span>
-<span id="cb21-24"><a href="#cb21-24"></a>  </span>
-<span id="cb21-25"><a href="#cb21-25"></a>  <span class="co"># Return p</span></span>
-<span id="cb21-26"><a href="#cb21-26"></a>  p</span>
-<span id="cb21-27"><a href="#cb21-27"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="cf">function</span>(m) {</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the marginal totals</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  r1  <span class="ot">&lt;-</span> <span class="fu">sum</span>(m[<span class="dv">1</span>, ])</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  r2  <span class="ot">&lt;-</span> <span class="fu">sum</span>(m[<span class="dv">2</span>, ])</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  c1  <span class="ot">&lt;-</span> <span class="fu">sum</span>(m[, <span class="dv">1</span>])</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  c2  <span class="ot">&lt;-</span> <span class="fu">sum</span>(m[, <span class="dv">2</span>])</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  tot <span class="ot">&lt;-</span> <span class="fu">sum</span>(m)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the conditional probability of getting the actual matrix given </span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># the particular row and column sums</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  r1_fac  <span class="ot">&lt;-</span> <span class="fu">factorial</span>(r1)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  r2_fac  <span class="ot">&lt;-</span> <span class="fu">factorial</span>(r2)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  c1_fac  <span class="ot">&lt;-</span> <span class="fu">factorial</span>(c1)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  c2_fac  <span class="ot">&lt;-</span> <span class="fu">factorial</span>(c2)</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>  tot_fac <span class="ot">&lt;-</span> <span class="fu">factorial</span>(tot)</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>  m_fac      <span class="ot">&lt;-</span> <span class="fu">factorial</span>(m) <span class="co"># factorial of each cell of the matrix (i.e., 5!, 0!, 1!, 4!)</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>  prod_m_fac <span class="ot">&lt;-</span> <span class="fu">prod</span>(m_fac)  <span class="co"># Multiply all of those values together</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>  numerator   <span class="ot">&lt;-</span> r1_fac <span class="sc">*</span> r2_fac <span class="sc">*</span> c1_fac <span class="sc">*</span> c2_fac</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>  denominator <span class="ot">&lt;-</span> tot_fac <span class="sc">*</span> (prod_m_fac)</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> numerator <span class="sc">/</span> denominator</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return p</span></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>  p</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>So, in the example above, the p value for our observed data (p_cutoff) equals:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>p_cutoff &lt;-<span class="st"> </span><span class="kw">p</span>(m_observed)</span>
-<span id="cb22-2"><a href="#cb22-2"></a>p_cutoff</span>
-<span id="cb22-3"><a href="#cb22-3"></a><span class="co">#&gt; [1] 0.02380952</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>p_cutoff <span class="ot">&lt;-</span> <span class="fu">p</span>(m_observed)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>p_cutoff</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.02380952</span></span></code></pre></div>
 <p>Next, we need to calculate the p value for all other combinations of values that could have existed given the marginal totals in our observed matrix “m”.</p>
 <p>For example,</p>
 <p>4 1<br />
 2 3</p>
 <p>would give us the same marginal totals (i.e., 5, 5, 6, 4)</p>
 <p>Below I calculate the p for each possible combination, and save them into a vector for use in the next step. In this case, the possible combinations are given on the <a href="http://mathworld.wolfram.com/FishersExactTest.html">Wolfram Mathworks website</a>. I’m still searching for an efficient algorithm that will find these combinations.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Create a empty vector to hold the p values created in the loop below</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a>p_values &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">mode =</span> <span class="st">&quot;numeric&quot;</span>)</span>
-<span id="cb23-3"><a href="#cb23-3"></a></span>
-<span id="cb23-4"><a href="#cb23-4"></a><span class="co"># Create a list of all possible combinations, given our margins</span></span>
-<span id="cb23-5"><a href="#cb23-5"></a>combinations &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
-<span id="cb23-6"><a href="#cb23-6"></a>  <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">1</span> ,<span class="dv">2</span>, <span class="dv">3</span>),</span>
-<span id="cb23-7"><a href="#cb23-7"></a>  <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>),</span>
-<span id="cb23-8"><a href="#cb23-8"></a>  <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>),</span>
-<span id="cb23-9"><a href="#cb23-9"></a>  <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">0</span>)</span>
-<span id="cb23-10"><a href="#cb23-10"></a>)</span>
-<span id="cb23-11"><a href="#cb23-11"></a></span>
-<span id="cb23-12"><a href="#cb23-12"></a><span class="co"># Calculate the p value for each combination and save it</span></span>
-<span id="cb23-13"><a href="#cb23-13"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(combinations)) {</span>
-<span id="cb23-14"><a href="#cb23-14"></a>  </span>
-<span id="cb23-15"><a href="#cb23-15"></a>  <span class="co"># Turn into a matrix</span></span>
-<span id="cb23-16"><a href="#cb23-16"></a>  m &lt;-<span class="st"> </span><span class="kw">matrix</span>(combinations[[i]], <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb23-17"><a href="#cb23-17"></a>  </span>
-<span id="cb23-18"><a href="#cb23-18"></a>  <span class="co"># Caclulate p</span></span>
-<span id="cb23-19"><a href="#cb23-19"></a>  p_val &lt;-<span class="st"> </span><span class="kw">p</span>(m)</span>
-<span id="cb23-20"><a href="#cb23-20"></a>  </span>
-<span id="cb23-21"><a href="#cb23-21"></a>  <span class="co"># Save p to vector</span></span>
-<span id="cb23-22"><a href="#cb23-22"></a>  p_values &lt;-<span class="st"> </span><span class="kw">c</span>(p_values, p_val)</span>
-<span id="cb23-23"><a href="#cb23-23"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a empty vector to hold the p values created in the loop below</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>p_values <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">mode =</span> <span class="st">&quot;numeric&quot;</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a list of all possible combinations, given our margins</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>combinations <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span> ,<span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>),</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>),</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">0</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the p value for each combination and save it</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(combinations)) {</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Turn into a matrix</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>  m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(combinations[[i]], <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Caclulate p</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>  p_val <span class="ot">&lt;-</span> <span class="fu">p</span>(m)</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Save p to vector</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>  p_values <span class="ot">&lt;-</span> <span class="fu">c</span>(p_values, p_val)</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>These p-values should all sum to 1</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">sum</span>(p_values, p_cutoff)</span>
-<span id="cb24-2"><a href="#cb24-2"></a><span class="co">#&gt; [1] 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(p_values, p_cutoff)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span></code></pre></div>
 <p>Next, the P-value of the test can be simply computed by the sum of all P-values which are &lt;= p_cutoff (including p_cutoff itself).</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>df &lt;-<span class="st"> </span><span class="kw">tibble</span>(</span>
-<span id="cb25-2"><a href="#cb25-2"></a>  <span class="dt">p_value  =</span> p_values,</span>
-<span id="cb25-3"><a href="#cb25-3"></a>  <span class="dt">p_cutoff =</span> p_cutoff</span>
-<span id="cb25-4"><a href="#cb25-4"></a>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb25-5"><a href="#cb25-5"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
-<span id="cb25-6"><a href="#cb25-6"></a>    <span class="dt">less_or_equal =</span> p_value <span class="op">&lt;=</span><span class="st"> </span>p_cutoff</span>
-<span id="cb25-7"><a href="#cb25-7"></a>  ) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb25-8"><a href="#cb25-8"></a><span class="st">  </span><span class="kw">print</span>()</span>
-<span id="cb25-9"><a href="#cb25-9"></a><span class="co">#&gt; # A tibble: 4 x 3</span></span>
-<span id="cb25-10"><a href="#cb25-10"></a><span class="co">#&gt;   p_value p_cutoff less_or_equal</span></span>
-<span id="cb25-11"><a href="#cb25-11"></a><span class="co">#&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;lgl&gt;        </span></span>
-<span id="cb25-12"><a href="#cb25-12"></a><span class="co">#&gt; 1  0.238    0.0238 FALSE        </span></span>
-<span id="cb25-13"><a href="#cb25-13"></a><span class="co">#&gt; 2  0.476    0.0238 FALSE        </span></span>
-<span id="cb25-14"><a href="#cb25-14"></a><span class="co">#&gt; 3  0.238    0.0238 FALSE        </span></span>
-<span id="cb25-15"><a href="#cb25-15"></a><span class="co">#&gt; 4  0.0238   0.0238 TRUE</span></span></code></pre></div>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>df <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="st">  </span><span class="kw">filter</span>(less_or_equal) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb26-3"><a href="#cb26-3"></a><span class="st">  </span><span class="kw">summarise</span>(</span>
-<span id="cb26-4"><a href="#cb26-4"></a>    <span class="st">`</span><span class="dt">p-value</span><span class="st">`</span> =<span class="st"> </span><span class="kw">sum</span>(p_value, p_cutoff)</span>
-<span id="cb26-5"><a href="#cb26-5"></a>  )</span>
-<span id="cb26-6"><a href="#cb26-6"></a><span class="co">#&gt; # A tibble: 1 x 1</span></span>
-<span id="cb26-7"><a href="#cb26-7"></a><span class="co">#&gt;   `p-value`</span></span>
-<span id="cb26-8"><a href="#cb26-8"></a><span class="co">#&gt;       &lt;dbl&gt;</span></span>
-<span id="cb26-9"><a href="#cb26-9"></a><span class="co">#&gt; 1    0.0476</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">p_value  =</span> p_values,</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p_cutoff =</span> p_cutoff</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">less_or_equal =</span> p_value <span class="sc">&lt;=</span> p_cutoff</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 3</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   p_value p_cutoff less_or_equal</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;lgl&gt;        </span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  0.238    0.0238 FALSE        </span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  0.476    0.0238 FALSE        </span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3  0.238    0.0238 FALSE        </span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4  0.0238   0.0238 TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(less_or_equal) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">p-value</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sum</span>(p_value, p_cutoff)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 1</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   `p-value`</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       &lt;dbl&gt;</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    0.0476</span></span></code></pre></div>
 <p>And for comparison, let’s check our results against R’s built-in function for Fisher’s Exact Test.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">fisher.test</span>(m_observed)</span>
-<span id="cb27-2"><a href="#cb27-2"></a><span class="co">#&gt; </span></span>
-<span id="cb27-3"><a href="#cb27-3"></a><span class="co">#&gt;  Fisher&#39;s Exact Test for Count Data</span></span>
-<span id="cb27-4"><a href="#cb27-4"></a><span class="co">#&gt; </span></span>
-<span id="cb27-5"><a href="#cb27-5"></a><span class="co">#&gt; data:  m_observed</span></span>
-<span id="cb27-6"><a href="#cb27-6"></a><span class="co">#&gt; p-value = 0.04762</span></span>
-<span id="cb27-7"><a href="#cb27-7"></a><span class="co">#&gt; alternative hypothesis: true odds ratio is not equal to 1</span></span>
-<span id="cb27-8"><a href="#cb27-8"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
-<span id="cb27-9"><a href="#cb27-9"></a><span class="co">#&gt;  1.024822      Inf</span></span>
-<span id="cb27-10"><a href="#cb27-10"></a><span class="co">#&gt; sample estimates:</span></span>
-<span id="cb27-11"><a href="#cb27-11"></a><span class="co">#&gt; odds ratio </span></span>
-<span id="cb27-12"><a href="#cb27-12"></a><span class="co">#&gt;        Inf</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fisher.test</span>(m_observed)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Fisher&#39;s Exact Test for Count Data</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  m_observed</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; p-value = 0.04762</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true odds ratio is not equal to 1</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1.024822      Inf</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; odds ratio </span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        Inf</span></span></code></pre></div>
 <p><a href="#table-of-contents">TOC</a></p>
 <p> </p>
 </div>
